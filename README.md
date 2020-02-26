@@ -2,7 +2,7 @@
 
 [![Image from Gyazo](https://i.gyazo.com/055d45f8f5f6878fa0fc8a125d71ce30.gif)](https://gyazo.com/055d45f8f5f6878fa0fc8a125d71ce30)
 
-https://youtu.be/vjDZkKGbBO0
+https://youtu.be/Z7LgL-ORlvE
 
 ## Project setup
 
