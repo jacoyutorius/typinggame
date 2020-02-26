@@ -38,6 +38,12 @@
               />
             </div>
           </div>
+
+          <div class="columns is-centered">
+            <div class="column is-half">
+              <progress class="progress is-success is-small" v-bind:value="progress" max="100"></progress>
+            </div>
+          </div>
         </section>
       </div>
     </div>
@@ -89,12 +95,11 @@ export default {
     isEndOfInput() {
       return this.nextIndex == this.answer.length;
     },
-    missTypeLog() {
-      return this.missTypes.join("\r\n");
-    },
-
     isLastQuestion() {
       return this.currentQuestionIndex == this.questions.length - 1;
+    },
+    progress() {
+      return (this.currentQuestionIndex / this.questions.length) * 100;
     }
   },
   created() {
