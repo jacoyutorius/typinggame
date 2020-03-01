@@ -1,1 +1,9 @@
-@import '~bulma/bulma'
+// Import a Google Font
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+
+// Update Bulma's global variables
+$family-sans-serif: "Nunito",
+sans-serif;
+
+$info: rgba(3, 6, 79, 0.86);
+@import "~bulma/bulma";

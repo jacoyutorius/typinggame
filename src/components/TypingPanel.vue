@@ -72,16 +72,35 @@ export default {
       questions: [
         // "aaa",
         // "bbb"
+        "a || b",
+        "a && b",
         "def hello; end",
-        "if (A == B)",
-        "docker container exec -it app sh",
+        // "if (A == B)",
+        // "docker container exec -it app sh",
         "git remote add origin https://github.com/repos/application.git",
-        "mysql -u user -p password",
+        // "mysql -u user -p password",
         "git add ."
       ],
       currentQuestionIndex: 0,
-      missTypes: [],
-      modalActive: false
+      missTypes: [
+        "a",
+        "a",
+        "a",
+        "a",
+        "a",
+        "d",
+        "d",
+        "d",
+        "]",
+        "]",
+        "]",
+        "'",
+        "|",
+        "|",
+        "|",
+        "|"
+      ],
+      modalActive: true
     };
   },
   computed: {
@@ -121,7 +140,6 @@ export default {
         if (this.isLastQuestion) {
           this.modalActive = true;
         } else {
-          alert("finish!!");
           this.nextQuestion();
         }
         return;

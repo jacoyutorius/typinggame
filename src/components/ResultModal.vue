@@ -2,24 +2,39 @@
   <div class="modal" v-bind:class="modalActivate">
     <div class="modal-background"></div>
     <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">お疲れさまでした！</p>
-      </header>
       <section class="modal-card-body">
-        <div class="table-container">
-          <table class="table">
-            <tbody>
-              <tr v-for="(m, i) in groupByResult" v-bind:key="i">
-                <td>{{ m[0] }}</td>
-                <td>{{ m[1] }}</td>
-              </tr>
-            </tbody>
-          </table>
+        <article class="message is-primary">
+          <div class="message-header">
+            <p>Congratulations!!</p>
+          </div>
+        </article>
+
+        <div class="columns is-mobile is-centered">
+          <div class="column is-half">
+            <div class="table-container">
+              <table class="table is-fullwidth">
+                <thead>
+                  <tr>
+                    <th>Key</th>
+                    <th>Missed</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="(m, i) in groupByResult" v-bind:key="i">
+                    <td>{{ m[0] }}</td>
+                    <td>{{ m[1] }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </section>
       <footer class="modal-card-foot">
-        <button class="button is-success">Save changes</button>
-        <button class="button" @click="resetResult">リセット</button>
+        <div>
+          <!-- <button class="button is-success">Save changes</button> -->
+          <button class="button" @click="resetResult">Reset</button>
+        </div>
       </footer>
     </div>
   </div>
@@ -60,3 +75,19 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+th,
+td {
+  text-align: center !important;
+}
+
+footer {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-background {
+  background-color: rgba(3, 6, 79, 0.86) !important;
+}
+</style>
