@@ -1,0 +1,20 @@
+{
+    "appName": "typinggame",
+    "roleName": "pinpointLambdaRole34797aee",
+    "cloudWatchPolicyName": "cloudWatchPolicy34797aee",
+    "pinpointPolicyName": "pinpointPolicy34797aee",
+    "authPolicyName": "pinpoint_amplify_34797aee",
+    "unauthPolicyName": "pinpoint_amplify_34797aee",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}

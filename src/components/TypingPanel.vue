@@ -21,7 +21,8 @@
                   v-bind:key="i"
                   class="title is-1"
                   v-bind:style="currentStyle(i)"
-                >{{ word }}</span>
+                  >{{ word }}</span
+                >
               </h1>
             </div>
           </div>
@@ -41,18 +42,28 @@
 
           <div class="columns is-centered">
             <div class="column is-half">
-              <progress class="progress is-success is-small" v-bind:value="progress" max="100"></progress>
+              <progress
+                class="progress is-success is-small"
+                v-bind:value="progress"
+                max="100"
+              ></progress>
             </div>
           </div>
         </section>
       </div>
     </div>
-    <ResultModal v-bind:active="modalActive" v-bind:miss-types="missTypes" v-on:resetEvent="reset"></ResultModal>
+    <ResultModal
+      v-bind:active="modalActive"
+      v-bind:miss-types="missTypes"
+      v-on:resetEvent="reset"
+    ></ResultModal>
   </section>
 </template>
 
 <script>
 import ResultModal from "./ResultModal";
+import Analytics from "@aws-amplify/analytics";
+import _ from "lodash";
 
 export default {
   name: "TypingPanel",
@@ -69,9 +80,7 @@ export default {
       results: [],
       nextIndex: 0,
       status: "is-primary",
-      questions: [
-        // "aaa",
-        // "bbb"
+      questions: _.shuffle([
         "a || b",
         "a && b",
         "def hello; end",
@@ -80,7 +89,7 @@ export default {
         "git remote add origin https://github.com/repos/application.git",
         "mysql -u user -p password",
         "git add ."
-      ],
+      ]),
       currentQuestionIndex: 0,
       missTypes: [],
       modalActive: false
@@ -120,6 +129,22 @@ export default {
       e.preventDefault();
 
       if (this.isEndOfInput && e.keyCode == 13) {
+        Analytics.record({
+          name: "typinggame",
+          attributes: {
+            answer: this.answer,
+            failed: this.missTypes.length
+          }
+        });
+
+        console.log({
+          name: "typinggame",
+          attributes: {
+            answer: this.answer,
+            failed: this.missTypes.length
+          }
+        });
+
         if (this.isLastQuestion) {
           this.modalActive = true;
         } else {
