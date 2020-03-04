@@ -137,14 +137,6 @@ export default {
           }
         });
 
-        console.log({
-          name: "typinggame",
-          attributes: {
-            answer: this.answer,
-            failed: this.missTypes.length
-          }
-        });
-
         if (this.isLastQuestion) {
           this.modalActive = true;
         } else {
