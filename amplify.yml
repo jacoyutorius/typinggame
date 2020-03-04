@@ -1,9 +1,4 @@
 version: 0.1
-backend:
-  phases:
-    build:
-      commands:
-        - amplifyPush --simple
 frontend:
   phases:
     preBuild:
@@ -11,6 +6,7 @@ frontend:
         - npm ci
     build:
       commands:
+        - amplify env pull
         - npm run build
   artifacts:
     baseDirectory: dist
