@@ -66,15 +66,15 @@ import Analytics from "@aws-amplify/analytics";
 import _ from "lodash";
 
 // refs https://aws-amplify.github.io/docs/js/analytics#page-view-tracking
-Analytics.autoTrack("session", {
+Analytics.autoTrack("pageView", {
   // REQUIRED, turn on/off the auto tracking
   enable: true,
-  // OPTIONAL, the attributes of the event, you can either pass an object or a function
-  // which allows you to define dynamic attributes
-  attributes: {
-    attr: "typing-panel"
-  },
   provider: "AWSPinpoint"
+});
+
+Analytics.updateEndpoint({
+  address: "jacoyutorius+myknee@gmail.com",
+  channelType: "EMAIL"
 });
 
 export default {
