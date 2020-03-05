@@ -1,10 +1,10 @@
 {
     "appName": "typinggame",
-    "roleName": "pinpointLambdaRole34797aee",
-    "cloudWatchPolicyName": "cloudWatchPolicy34797aee",
-    "pinpointPolicyName": "pinpointPolicy34797aee",
-    "authPolicyName": "pinpoint_amplify_34797aee",
-    "unauthPolicyName": "pinpoint_amplify_34797aee",
+    "roleName": "pinpointLambdaRole4811ecc3",
+    "cloudWatchPolicyName": "cloudWatchPolicy4811ecc3",
+    "pinpointPolicyName": "pinpointPolicy4811ecc3",
+    "authPolicyName": "pinpoint_amplify_4811ecc3",
+    "unauthPolicyName": "pinpoint_amplify_4811ecc3",
     "authRoleName": {
         "Ref": "AuthRoleName"
     },

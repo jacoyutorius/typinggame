@@ -125,17 +125,22 @@ export default {
         ? "color: red; background-color: #f443364f;"
         : "";
     },
+    sendAnalytics() {
+      const attributes = {
+        answer: this.answer,
+        failed: this.missTypes.length
+      };
+      console.log(attributes);
+      Analytics.record({
+        name: "typinggame",
+        attributes
+      });
+    },
     onKeypress(e) {
       e.preventDefault();
 
       if (this.isEndOfInput && e.keyCode == 13) {
-        Analytics.record({
-          name: "typinggame",
-          attributes: {
-            answer: this.answer,
-            failed: this.missTypes.length
-          }
-        });
+        this.sendAnalytics();
 
         if (this.isLastQuestion) {
           this.modalActive = true;
