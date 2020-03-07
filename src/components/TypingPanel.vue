@@ -72,11 +72,6 @@ Analytics.autoTrack("pageView", {
   provider: "AWSPinpoint"
 });
 
-Analytics.updateEndpoint({
-  address: "jacoyutorius+myknee@gmail.com",
-  channelType: "EMAIL"
-});
-
 export default {
   name: "TypingPanel",
   components: {
@@ -126,6 +121,11 @@ export default {
     }
   },
   created() {
+    Analytics.updateEndpoint({
+      address: "jacoyutorius+myknee@gmail.com",
+      channelType: "EMAIL"
+    });
+
     this.answer = this.getNextTarget();
   },
   methods: {
