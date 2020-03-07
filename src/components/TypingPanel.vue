@@ -65,13 +65,6 @@ import ResultModal from "./ResultModal";
 import Analytics from "@aws-amplify/analytics";
 import _ from "lodash";
 
-// refs https://aws-amplify.github.io/docs/js/analytics#page-view-tracking
-Analytics.autoTrack("pageView", {
-  // REQUIRED, turn on/off the auto tracking
-  enable: true,
-  provider: "AWSPinpoint"
-});
-
 export default {
   name: "TypingPanel",
   components: {
@@ -124,6 +117,12 @@ export default {
     Analytics.updateEndpoint({
       address: "jacoyutorius+myknee@gmail.com",
       channelType: "EMAIL"
+    });
+
+    // refs https://aws-amplify.github.io/docs/js/analytics#page-view-tracking
+    Analytics.autoTrack("pageView", {
+      enable: true,
+      provider: "AWSPinpoint"
     });
 
     this.answer = this.getNextTarget();
